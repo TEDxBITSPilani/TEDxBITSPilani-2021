@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TEDxBITSPilani</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" media="screen" href="style.css">
+    <style>
+        #contactPage{margin-bottom: 70px;}
+        .pageContainer{
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+        .contactForm>* { width: 60vw;}
+        .prevQues{margin: 10px 0;}
+    </style>
+</head>
+
+<body>
+    <div id="pageWrapper">
+        <div id="topBar">
+        <div id="logo">
+            <img src="logo_black.png" alt="" onclick="window.location.href='./index.html';">
+        </div>
+        <!-- <div id="hamburger" onclick="openNav()">
+            <svg viewBox="0 0 100 80" width="40" height="40" fill="white">
+                <rect width="100" height="15" rx="8"></rect>
+                <rect y="30" width="100" height="15" rx="8"></rect>
+                <rect y="60" width="100" height="15" rx="8"></rect>
+            </svg>
+        </div> -->
+    </div>
+    <div id="contactPage" class="page">
+        <div class="pageContainer">
+          <div class="pageHeading">Questionnaire</div>
+          <div class="pageContent contactFlexWrapper" style="display: flex; flex-direction: column;">
+            <form class="contactForm" action="http://127.0.0.1:5500/questionnaire.html" method="POST">
+              <h2>Quick Question Form</h2>
+              <input name="name" placeholder="Name (Mandatory)" type="text" pattern="[A-Za-z ]{1,32}" required />
+              <!-- <input name="email" placeholder="E Mail (Mandatory)" type="email" required /> -->
+              <input name="speaker" placeholder="Name of Speaker (Mandatory)" type="text" pattern="[A-Za-z ]{1,32}" required />
+              <textarea name="question" id="question" placeholder="Enter Your Question... (Mandatory)" style="resize: none;"
+                required></textarea>
+              <input type="submit" value="Submit" class="submit" style="width: fit-content; display:block" />
+            </form>
+            <div class="prevQues">
+                <h3>Your Previous Questions</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer" class="page" style="background-color: black;">
+        <div class="pageContainer">
+          <div class="footerContainer1">
+            <div>
+              <div class="pageHeading" style="color:white">Quick Links</div>
+              <div class="pageContent">
+                <ul class="quickLinksList">
+                  <li><a href="#pageWrapper">&bull; Home</a></li>
+                  <li><a href="#aboutPage">&bull; About</a></li>
+                  <li><a href="#speakersPage">&bull; Past Speakers</a></li>
+                  <li><a href="./sponsors.html">&bull; Sponsors</a></li>
+                  <li><a href="./archive.html">&bull; Archive</a></li>
+                  <li><a href="#contactPage">&bull; Contact</a></li>
+                  <li><a href="./team.html">&bull; Team</a></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="pageHeading" style="color:white">Stay Connected</div>
+              <div class="pageContent">
+                <div class="footerContact">
+                  <div>
+                    <img src="assets/images/svg/gps.svg" class="socialSVG supportIcon" /> BITS Pilani, Pilani
+                    Campus,
+                    Vidya Vihar, Pilani, Rajasthan 333031</div>
+                  <div>
+                    <img src="assets/images/svg/mail2.svg" class="socialSVG supportIcon"
+                      onclick="window.location.href= `mailto:tedxbitspilani.team@gmail.com`" style="margin-right:10px" />
+                    TEDxBITSPilani.team@gmail.com
+                  </div>
+                </div>
+                <div class="socialSVGContainer">
+                  <img src="assets/images/svg/ig.svg" class="socialSVG"
+                    onclick="window.location.href= `https://www.instagram.com/tedxbitspilani/`" />
+                  <img src="assets/images/svg/fb.svg" class="socialSVG"
+                    onclick="window.location.href= `https://www.facebook.com/tedxbitspilani`" />
+                  <img src="assets/images/svg/yt.svg" class="socialSVG"
+                    onclick="window.location.href= `https://www.youtube.com/channel/UCcHCVMM3gXlVHdnrZywlWbQ`" />
+                  <!-- <img src="assets/images/svg/mail.svg" class="socialSVG"
+                onclick="window.location.href= `mailto:tedxbitspilani.pr@gmail.com`" /> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="footerContainer2">
+            <div class="footerLogo"><img src="assets/images/logo_black.png" alt=""> </div>
+            <div class="tedxLine">This independent TEDx event is operated under license from TED.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    let prevques= document.querySelector(".prevQues");
+    if(localStorage) {
+	$(document).ready(function() {
+		$(".submit").click(function(e) {
+			var Question = $("#question").val();
+    		localStorage.setItem("question", Question);
+            console.log(localStorage.getItem("question"));
+            e.preventDefault();
+            const displayQues= document.createElement("DIV");
+            displayQues.innerHTML=localStorage.getItem("question");
+            prevques.appendChild(displayQues);
+		});
+	});
+} else {
+    alert("Sorry, something went wrong.");
+}
+</script>
+</html>
