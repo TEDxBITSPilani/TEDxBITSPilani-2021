@@ -39,7 +39,7 @@ canvas {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: black;
   color: white;
   height: calc(10vh + 10px);
   width: 100vw;
