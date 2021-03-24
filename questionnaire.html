@@ -29,6 +29,10 @@
       }
       .card1{width: 70vw;}
     }
+    #speaker{
+      padding: 3px 0;
+      color: rgba(0, 0, 0, 0.6)
+    }
   </style>
 </head>
 
@@ -55,8 +59,16 @@
             <input name="name" id="name" placeholder="Name (Mandatory)" type="text" pattern="[A-Za-z ]{1,32}"
               required />
             <!-- <input name="email" placeholder="E Mail (Mandatory)" type="email" required /> -->
-            <input name="speaker" id="speaker" placeholder="Name of Speaker (Mandatory)" type="text"
-              pattern="[A-Za-z ]{1,32}" required />
+            <select name="speaker" id="speaker" type="text" pattern="[A-Za-z ]{1,32}" required>
+              <option value="",disabled selected>Name of Speaker (Mandatory)</option>
+              <option value="Rajani Thinidiath">Rajani Thinidiath</option>
+              <option value="Vandana Shah">Vandana Shah</option>
+              <option value="Minal Kavishiwar">Minal Kavishiwar</option>
+              <option value="Jennifer Alphonse">Jennifer Alphonse</option>
+              <option value="Harshit Bansal	">Harshit Bansal</option>
+              <option value="Dr. Chandrakant Lahariya">Dr. Chandrakant Lahariya</option>
+              <option value="Srikanth Velamakanni">Srikanth Velamakanni</option>
+            </select>
             <textarea name="question" id="question" placeholder="Enter Your Question... (Mandatory)"
               style="resize: none;" required></textarea>
             <input type="submit" value="Submit" class="submit" style="width: fit-content; display:block" />
@@ -150,6 +162,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
   let prevQues= document.querySelector(".prevQues");
+
   if (localStorage) {
     $(document).ready(function () {
       $(".submit").click(function (e) {
