@@ -1,4 +1,4 @@
 # TEDx BITS Pilani
 
-gh page
-[https://rutva9l.github.io/TEDxBITSPilani-2021/](https://rutva9l.github.io/TEDxBITSPilani-2021/)
+This is the website for TEDx BITS Pilani 2021.
+[Visit here](https://nidheeshjain.github.io/TEDxBITSPilani-2021/)
